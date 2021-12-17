@@ -20,6 +20,7 @@ from app.views import home,countryFilter, detalhes
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
+    path('page/<int:page>/', home),
     path('countryFilter/', countryFilter),
     path('detalhes/<int:pk>/', detalhes),
 ]

@@ -17,9 +17,30 @@
 
         </form>
     </div>
+
+    <div class="graph col-10 m-auto">
+        {% autoescape off %}
+            {{grafico}}
+        {% endautoescape %}
+    </div>
+
     <div class="result col-10 m-auto">
         {% autoescape off %}
             {{dados}}
         {% endautoescape %}
     </div>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+          {% if paginator.has_previous %}
+            <li class="page-item"><a class="page-link" href="/page/{{paginator.previous_page_number}}">Anterior</a></li>
+          {% endif %}
+
+        <li class="page-item"><a class="page-link" href="#">{{paginator.number}}</a></li>
+
+          {% if paginator.has_next %}
+            <li class="page-item"><a class="page-link" href="/page/{{paginator.next_page_number}}">Próxima</a></li>
+          {% endif %}
+      </ul>
+    </nav>
 {% endblock %}
